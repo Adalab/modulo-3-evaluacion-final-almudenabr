@@ -2,14 +2,12 @@ import React from "react";
 // import { Link, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Home from "./Home";
-import About from "./About";
+import Header from "./Header";
 
 const App = () => {
   return (
     <>
-      <header>
-        <h1>Rick and Morty</h1>
-      </header>
+      <Header />
 
       <main>
         <section>
