@@ -5,6 +5,11 @@ import Header from "./Header";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
+import api from "../services/api";
+
+api.getDataFromApi().then((data) => {
+  console.log(data);
+});
 
 const App = () => {
   return (
