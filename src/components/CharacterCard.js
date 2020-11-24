@@ -2,7 +2,6 @@ import React from "react";
 import "./CharacterCard.scss";
 
 const CharacterCard = (props) => {
-  console.log(props);
   return (
     <>
       <li className="card">

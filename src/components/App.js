@@ -20,12 +20,17 @@ const App = () => {
     });
   }, []);
 
+  //event
+  const handleFilter = (filterText) => {
+    console.log("Cambio datos App", filterText);
+  };
+
   return (
     <>
       <Header />
 
       <main>
-        <Filters />
+        <Filters handleFilterApp={handleFilter} />
         <CharacterList charactersApp={characters} />
         {/* <CharacterDetail /> */}
       </main>
