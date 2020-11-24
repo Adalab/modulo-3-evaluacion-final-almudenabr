@@ -6,7 +6,7 @@ const CharacterCard = (props) => {
   return (
     <>
       <li className="card">
-        <Link to={`/character-detail/${props.id}`}>
+        <Link to={`/character-detail/${props.character.id}`}>
           <img
             className="card__img"
             src={props.character.image}

@@ -15,7 +15,7 @@ const App = () => {
   //api
 
   useEffect(() => {
-    //función que se va a ejecutar al montar componente
+    //funtion to be excuted when component is mounted
     api.getDataFromApi().then((data) => {
       setCharacters(data);
     });
@@ -23,7 +23,7 @@ const App = () => {
 
   //event
   const handleFilter = (filterText) => {
-    setFilterText(filterText); //guardo en el estado los datos del input
+    setFilterText(filterText); //keep in the state the data from input
   };
 
   //filtered text
@@ -34,16 +34,22 @@ const App = () => {
   const renderCharacterDetail = (props) => {
     const routeCharacterId = props.match.params.characterId;
     const foundCharacter = characters.find((character) => {
-      return routeCharacterId === character.id;
-      // if (routeCharacterId === character.id) {
+      return parseInt(routeCharacterId) === character.id;
+
+      ///It is the same that:
+      // if (parseInt(routeCharacterId) === character.id) {
       //   return true;
       // } else {
       //   return false;
       // }
     });
-    console.log(foundCharacter);
-    return;
-    <CharacterDetail />;
+
+    //error message when url is wrong or it does not exist in API
+    if (foundCharacter === undefined) {
+      <p>Lo sentimos, ese personaje no es de esta galaxia.</p>;
+    } else {
+      return <CharacterDetail foundCharacterApp={foundCharacter} />;
+    }
   };
 
   return (
