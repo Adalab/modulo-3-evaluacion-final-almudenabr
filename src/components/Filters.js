@@ -1,16 +1,28 @@
 import React from "react";
+import "./Filter.scss";
 
 const Filters = (props) => {
-  //evento
+  // evento
 
   const handleFilter = (ev) => {
     props.handleFilterApp(ev.target.value);
   };
+
+  //prevent submit
+  const handleFormSubmit = (ev) => {
+    ev.preventDefault();
+  };
+
   return (
-    <section>
-      <form>
+    <section className="filterContainer">
+      <form onSubmit={handleFormSubmit}>
         <label htmlFor="name">Busca tu personaje favorito: </label>
-        <input type="text" id="name" onChange={handleFilter} />
+        <input
+          className="filterContainer--input"
+          type="text"
+          id="name"
+          onChange={handleFilter}
+        />
       </form>
     </section>
   );
