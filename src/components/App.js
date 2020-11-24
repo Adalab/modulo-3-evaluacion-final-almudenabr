@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { Link, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Header from "./Header";
 import Filters from "./Filters";
@@ -26,10 +26,25 @@ const App = () => {
     setFilterText(filterText); //guardo en el estado los datos del input
   };
 
-  //filter text
+  //filtered text
   const filteredCharacters = characters.filter((character) => {
     return character.name.toUpperCase().includes(filterText.toUpperCase());
   });
+
+  const renderCharacterDetail = (props) => {
+    const routeCharacterId = props.match.params.characterId;
+    const foundCharacter = characters.find((character) => {
+      return routeCharacterId === character.id;
+      // if (routeCharacterId === character.id) {
+      //   return true;
+      // } else {
+      //   return false;
+      // }
+    });
+    console.log(foundCharacter);
+    return;
+    <CharacterDetail />;
+  };
 
   return (
     <>
@@ -38,7 +53,12 @@ const App = () => {
       <main>
         <Filters handleFilterApp={handleFilter} />
         <CharacterList charactersApp={filteredCharacters} />
-        {/* <CharacterDetail /> */}
+        <Switch>
+          <Route
+            path="/character-detail/:characterId"
+            render={renderCharacterDetail}
+          />
+        </Switch>
       </main>
     </>
   );

@@ -4,7 +4,13 @@ import "./CharacterList.scss";
 
 const CharacterList = (props) => {
   const charactersItems = props.charactersApp.map((character) => {
-    return <CharacterCard key={character.id} character={character} />;
+    return (
+      <CharacterCard
+        key={character.id}
+        id={character.id}
+        character={character}
+      />
+    );
   });
 
   return (
