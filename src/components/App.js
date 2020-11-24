@@ -46,7 +46,6 @@ const App = () => {
 
     //error message when url is wrong or it does not exist in API
     if (foundCharacter === undefined) {
-      console.log(foundCharacter);
       return (
         <p className="errorMessage">
           Lo sentimos, ese personaje no es de esta galaxia.
