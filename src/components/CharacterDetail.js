@@ -3,7 +3,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./CharacterDetail.scss";
 
 const CharacterDetail = (props) => {
-  console.log(props.foundCharacterApp);
+  console.log(props.foundCharacterApp.episode.length);
   console.log("Detail");
   return (
     <div className="item">
@@ -24,7 +24,7 @@ const CharacterDetail = (props) => {
               <li>Status: {props.foundCharacterApp.status}</li>
               <li>Species: {props.foundCharacterApp.species}</li>
               <li>Origin: {props.foundCharacterApp.origin.name}</li>
-              <li>Episodes: 31</li>
+              <li>Episodes: {props.foundCharacterApp.episode.length}</li>
             </ul>
           </section>
         </article>
