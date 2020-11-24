@@ -10,6 +10,7 @@ import api from "../services/api";
 const App = () => {
   //state
   const [characters, setCharacters] = useState([]);
+  const [filterText, setFilterText] = useState("");
 
   //api
 
@@ -22,8 +23,14 @@ const App = () => {
 
   //event
   const handleFilter = (filterText) => {
-    console.log("Cambio datos App", filterText);
+    setFilterText(filterText); //guardo en el estado los datos del input
   };
+
+  //filter text
+  const filteredCharacters = characters.filter((character) => {
+    return character.name.toUpperCase().includes(filterText.toUpperCase());
+  });
+  console.log(filteredCharacters);
 
   return (
     <>
@@ -31,7 +38,7 @@ const App = () => {
 
       <main>
         <Filters handleFilterApp={handleFilter} />
-        <CharacterList charactersApp={characters} />
+        <CharacterList charactersApp={filteredCharacters} />
         {/* <CharacterDetail /> */}
       </main>
     </>
