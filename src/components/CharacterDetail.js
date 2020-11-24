@@ -3,25 +3,23 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./CharacterDetail.scss";
 
 const CharacterDetail = (props) => {
-  console.log(props.foundCharacterApp.episode.length);
-  console.log("Detail");
   return (
-    <div className="item">
+    <div>
       <Link to="/">
-        <article>
-          <div>
-            <img
-              className="item__img"
-              src={props.foundCharacterApp.image}
-              alt={`Imagen de ${props.foundCharacterApp.name}`}
-            />
-          </div>
-          <header>
-            <h2>{props.foundCharacterApp.name}</h2>
-          </header>
-          <section>
-            <ul>
-              <li>Status: {props.foundCharacterApp.status}</li>
+        <article className="item">
+          <img
+            className="item__img"
+            src={props.foundCharacterApp.image}
+            alt={`Imagen de ${props.foundCharacterApp.name}`}
+          />
+          <section className="item__info">
+            <header className="item__info--title">
+              <h2>{props.foundCharacterApp.name}</h2>
+            </header>
+            <ul className="item__info--list">
+              <li className="item__info--item">
+                Status: {props.foundCharacterApp.status}
+              </li>
               <li>Species: {props.foundCharacterApp.species}</li>
               <li>Origin: {props.foundCharacterApp.origin.name}</li>
               <li>Episodes: {props.foundCharacterApp.episode.length}</li>
