@@ -1,22 +1,18 @@
 import React from "react";
+import "./CharacterCard.scss";
 
 const CharacterCard = (props) => {
+  console.log(props);
   return (
     <>
-      <li className="cardItem">
-        <img src="https://rickandmortyapi.com/api/location/1" alt="" />
-        <h4> Rick Sanchez </h4>
-        <p> Human</p>
-      </li>
-      <li className="cardItem">
-        <img src="https://rickandmortyapi.com/api/location/1" alt="" />
-        <h4> Rick Sanchez </h4>
-        <p> Human</p>
-      </li>
-      <li className="cardItem">
-        <img src="https://rickandmortyapi.com/api/location/1" alt="" />
-        <h4> Rick Sanchez </h4>
-        <p> Human</p>
+      <li className="card">
+        <img
+          className="card__img"
+          src={props.character.image}
+          alt={`Imagen de ${props.character.name}`}
+        />
+        <h4 className="card__name">{props.character.name}</h4>
+        <p className="card__detail"> {props.character.species}</p>
       </li>
     </>
   );

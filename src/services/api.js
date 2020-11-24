@@ -4,7 +4,7 @@ const getDataFromApi = () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      return data;
+      return data.results;
     });
 };
 
