@@ -46,7 +46,12 @@ const App = () => {
 
     //error message when url is wrong or it does not exist in API
     if (foundCharacter === undefined) {
-      <p>Lo sentimos, ese personaje no es de esta galaxia.</p>;
+      console.log(foundCharacter);
+      return (
+        <p className="errorMessage">
+          Lo sentimos, ese personaje no es de esta galaxia.
+        </p>
+      );
     } else {
       return <CharacterDetail foundCharacterApp={foundCharacter} />;
     }
@@ -58,8 +63,10 @@ const App = () => {
 
       <main>
         <Filters handleFilterApp={handleFilter} />
-        <CharacterList charactersApp={filteredCharacters} />
         <Switch>
+          <Route exact path="/">
+            <CharacterList charactersApp={filteredCharacters} />
+          </Route>
           <Route
             path="/character-detail/:characterId"
             render={renderCharacterDetail}
