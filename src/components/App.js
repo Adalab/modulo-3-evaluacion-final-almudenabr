@@ -6,18 +6,22 @@ import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
 import api from "../services/api";
+import Loading from "./Loading";
 
 const App = () => {
   //state
   const [characters, setCharacters] = useState([]);
   const [filterText, setFilterText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   //api
 
   useEffect(() => {
     //funtion to be excuted when component is mounted
+    setIsLoading(true);
     api.getDataFromApi().then((data) => {
       setCharacters(data);
+      setIsLoading(false);
     });
   }, []);
 
@@ -58,8 +62,10 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      {/* Loading */}
+      {isLoading === true ? <Loading /> : null}
 
+      <Header />
       <main>
         <Filters handleFilterApp={handleFilter} />
         <Switch>
