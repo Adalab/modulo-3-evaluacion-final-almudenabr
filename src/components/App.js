@@ -27,7 +27,8 @@ const App = () => {
 
   //event
   const handleFilter = (filterText) => {
-    setFilterText(filterText); //keep in the state the data from input
+    console.log(filterText);
+    setFilterText(filterText); //keep the data from input in the state
   };
 
   //filtered text
@@ -35,28 +36,22 @@ const App = () => {
     return character.name.toUpperCase().includes(filterText.toUpperCase());
   });
 
+  //paint character detail
   const renderCharacterDetail = (props) => {
     const routeCharacterId = props.match.params.characterId;
     const foundCharacter = characters.find((character) => {
       return parseInt(routeCharacterId) === character.id;
-
-      ///It is the same that:
-      // if (parseInt(routeCharacterId) === character.id) {
-      //   return true;
-      // } else {
-      //   return false;
-      // }
     });
 
-    //error message when url is wrong or it does not exist in API
-    if (foundCharacter === undefined) {
+    //error message when url is wrong
+    if (foundCharacter) {
+      return <CharacterDetail foundCharacterApp={foundCharacter} />;
+    } else {
       return (
         <p className="errorMessage">
           Lo sentimos, ese personaje no es de esta galaxia.
         </p>
       );
-    } else {
-      return <CharacterDetail foundCharacterApp={foundCharacter} />;
     }
   };
 

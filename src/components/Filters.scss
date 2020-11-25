@@ -1,17 +1,20 @@
 .filterContainer {
-  background: greenyellow;
+  // background: greenyellow;
   height: 50px;
   text-align: center;
   padding-top: 15px;
   font-size: 25px;
 
+  &--label {
+    color: greenyellow;
+  }
+
   &--input {
-    text-align: center;
     background-color: black;
+    border-color: yellowgreen;
     cursor: pointer;
     vertical-align: middle;
-    text-align: center;
-    text-decoration: none;
-    color: white;
+    color: greenyellow;
+    margin-left: 15px;
   }
 }

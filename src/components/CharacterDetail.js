@@ -5,7 +5,7 @@ import "./CharacterDetail.scss";
 const CharacterDetail = (props) => {
   return (
     <div>
-      <Link to="/">
+      <Link to="/" className="link">
         <article className="item">
           <img
             className="item__img"
@@ -17,12 +17,22 @@ const CharacterDetail = (props) => {
               <h2>{props.foundCharacterApp.name}</h2>
             </header>
             <ul className="item__info--list">
-              <li className="item__info--item">
-                Status: {props.foundCharacterApp.status}
+              <li>
+                <span className="bold">Status: </span>
+                {props.foundCharacterApp.status}
               </li>
-              <li>Species: {props.foundCharacterApp.species}</li>
-              <li>Origin: {props.foundCharacterApp.origin.name}</li>
-              <li>Episodes: {props.foundCharacterApp.episode.length}</li>
+              <li>
+                <span className="bold">Species: </span>
+                {props.foundCharacterApp.species}
+              </li>
+              <li>
+                <span className="bold">Origin: </span>
+                {props.foundCharacterApp.origin.name}
+              </li>
+              <li>
+                <span className="bold">Episodes: </span>
+                {props.foundCharacterApp.episode.length}
+              </li>
             </ul>
           </section>
         </article>

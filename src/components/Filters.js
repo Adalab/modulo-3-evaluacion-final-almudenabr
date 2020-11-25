@@ -1,5 +1,5 @@
 import React from "react";
-import "./Filter.scss";
+import "./Filters.scss";
 
 const Filters = (props) => {
   // evento
@@ -16,7 +16,9 @@ const Filters = (props) => {
   return (
     <section className="filterContainer">
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor="name">Busca tu personaje favorito: </label>
+        <label className="filterContainer--label" htmlFor="name">
+          Busca tu personaje favorito:
+        </label>
         <input
           className="filterContainer--input"
           type="text"
