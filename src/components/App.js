@@ -27,7 +27,6 @@ const App = () => {
 
   //event
   const handleFilter = (filterText) => {
-    console.log(filterText);
     setFilterText(filterText); //keep the data from input in the state
   };
 
@@ -55,6 +54,9 @@ const App = () => {
     }
   };
 
+  //error message when writing incorrect character name
+  const inputText = filterText;
+
   return (
     <>
       {/* Loading */}
@@ -65,7 +67,10 @@ const App = () => {
         <Filters handleFilterApp={handleFilter} />
         <Switch>
           <Route exact path="/">
-            <CharacterList charactersApp={filteredCharacters} />
+            <CharacterList
+              charactersApp={filteredCharacters}
+              inputTextApp={inputText}
+            />
           </Route>
           <Route
             path="/character-detail/:characterId"

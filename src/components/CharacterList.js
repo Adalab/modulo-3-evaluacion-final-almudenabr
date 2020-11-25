@@ -15,7 +15,13 @@ const CharacterList = (props) => {
 
   return (
     <section>
-      <ul className="listContainer">{charactersItems}</ul>
+      {props.charactersApp.length !== 0 ? (
+        <ul className="listContainer">{charactersItems}</ul>
+      ) : (
+        <p className="errorMessage">
+          {`El personaje ${props.inputTextApp} no existe.`}
+        </p>
+      )}
     </section>
   );
 };
