@@ -13,6 +13,7 @@ const App = () => {
   const [characters, setCharacters] = useState([]);
   const [filterText, setFilterText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isSelect, setSelect] = useState("");
 
   //api
 
@@ -30,10 +31,18 @@ const App = () => {
     setFilterText(filterText); //keep the data from input in the state
   };
 
+  const handleSelect = (isSelect) => {
+    setSelect(isSelect);
+  };
+
   //filtered text
-  const filteredCharacters = characters.filter((character) => {
-    return character.name.toUpperCase().includes(filterText.toUpperCase());
-  });
+  const filteredCharacters = characters
+    .filter((character) => {
+      return character.name.toUpperCase().includes(filterText.toUpperCase());
+    })
+    .filter((character) => {
+      return character.gender.includes(isSelect);
+    });
 
   //paint character detail
   const renderCharacterDetail = (props) => {
@@ -64,7 +73,10 @@ const App = () => {
 
       <Header />
       <main>
-        <Filters handleFilterApp={handleFilter} />
+        <Filters
+          handleFilterApp={handleFilter}
+          handleSelectApp={handleSelect}
+        />
         <Switch>
           <Route exact path="/">
             <CharacterList
